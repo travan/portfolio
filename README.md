@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio — Tra Nguyen
 
-## Getting Started
+Personal developer portfolio built with **Next.js**. Terminal-style hero, intro tabs (Hello / About / GitHub), and CV content in the About tab.
 
-First, run the development server:
+**Live:** Deploy on [Vercel](https://vercel.com) or any Node host after `npm run build`.
+
+---
+
+## Features
+
+- **Terminal hero** — Typewriter-style contact output
+- **Intro tabs** — Hello (CSS robot), About (summary, skills, experience, education), GitHub projects
+- **Dark dev/terminal theme** — Monospace typography, accent greens
+- **Effects** — Scroll progress, back-to-top, hover states, tech footprint on experience cards
+
+---
+
+## Tech stack
+
+| Layer     | Technology        |
+| --------- | ----------------- |
+| Framework | Next.js 14 (App Router) |
+| Language  | TypeScript        |
+| Styling   | Tailwind CSS      |
+| Content   | Structured in `data/cv.ts` |
+
+---
+
+## Getting started
+
+### Prerequisites
+
+- **Node.js** 18+ (recommended: LTS)
+- **npm** (or pnpm / yarn)
+
+### Install & run locally
 
 ```bash
+git clone https://github.com/<your-username>/<repo-name>.git
+cd <repo-name>
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Production build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+### Lint
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project structure
 
-## Deploy on Vercel
+```
+portfolio/
+├── app/                 # App Router: layout, page, globals.css
+├── components/          # UI (Terminal, IntroTabs, Experience, etc.)
+├── data/cv.ts           # Profile, skills, experience, GitHub projects
+├── hooks/               # e.g. useInView
+└── public/              # Static assets
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Update your CV and links in **`data/cv.ts`**.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Deploy to GitHub + Vercel (example)
+
+1. Push this repo to GitHub.
+2. Import the repo in [Vercel](https://vercel.com/new).
+3. Framework preset: **Next.js** — deploy with defaults.
+
+Environment variables are not required for the static CV flow.
+
+---
+
+## Author
+
+**Tra Nguyen** — Software Engineer  
+
+- GitHub: [@travan](https://github.com/travan)
+- LinkedIn: [profile](https://www.linkedin.com/in/tra-n-516b361b1/)
+
+---
+
+## License
+
+This project is open for personal portfolio use. You may fork and adapt for your own site; attribution is appreciated.

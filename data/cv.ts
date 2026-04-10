@@ -46,11 +46,37 @@ export interface GithubProject {
   description: string;
   tech: string[];
   href: string;
+  demo?: string;
 }
 
 export const githubProfile: { url: string; projects: GithubProject[] } = {
   url: "https://github.com/travan",
   projects: [
+    {
+      name: "VeriCause",
+      description: "AI reliability layer (npm: ai-reliability-layer) that validates AI failure analysis against real runtime evidence. Runs scenarios with Playwright, lets an AI diagnose the failure, then cross-checks the prediction against what actually happened in the browser.",
+      tech: ["TypeScript", "Node.js", "Playwright", "Jest", "GitHub Actions"],
+      href: "https://github.com/travan/VeriCause",
+    },
+    {
+      name: "letEnjoyYourMeals",
+      description: "Full-stack platform to search and explore new restaurants. Includes REST API, website, and mobile app with Docker deployment.",
+      tech: ["TypeScript", "Node.js", "Docker"],
+      href: "https://github.com/travan/letEnjoyYourMeals",
+      demo: "https://eym-zeta.vercel.app/",
+    },
+    {
+      name: "folk_games",
+      description: "Full-stack folk games web application with dedicated backend and frontend.",
+      tech: ["TypeScript", "JavaScript", "CSS"],
+      href: "https://github.com/travan/folk_games",
+    },
+    {
+      name: "portfolio",
+      description: "My personal portfolio website built with Next.js.",
+      tech: ["TypeScript", "Next.js"],
+      href: "https://github.com/travan/portfolio",
+    },
     { name: "crud_angular", description: "CRUD application built with Angular.", tech: ["JavaScript", "Angular"], href: "https://github.com/travan/crud_angular" },
     { name: "shop_phuc", description: "E-commerce store front-end and source code.", tech: ["HTML"], href: "https://github.com/travan/shop_phuc" },
     { name: "demo_test", description: "Testing and demo utilities.", tech: ["JavaScript"], href: "https://github.com/travan/demo_test" },
@@ -62,11 +88,22 @@ export const githubProfile: { url: string; projects: GithubProject[] } = {
 
 export const skillGroups: SkillGroup[] = [
   {
+    category: "System Design",
+    items: [
+      "Microservices Architecture",
+      "High-Level System Design",
+      "Scalable Backend Systems",
+      "API Performance Optimization",
+      "Caching Strategies (Redis)",
+      "Async Processing",
+      "High-Load System Handling",
+    ],
+  },
+  {
     category: "Backend",
     items: [
       "Node.js (NestJS, Express, Loopback)",
       "REST APIs, GraphQL, gRPC",
-      "Microservices Architecture, System Design",
       "Redis (Caching), Async Processing",
     ],
   },

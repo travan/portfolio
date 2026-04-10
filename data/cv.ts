@@ -24,13 +24,14 @@ export interface ExperienceJob {
 export interface EducationItem {
   school: string;
   degree: string;
+  schoolPeriod: string;
   thesis: string;
   thesisPeriod: string;
 }
 
 export const profile: Profile = {
   name: "TRA NGUYEN",
-  title: "Software Engineer",
+  title: "Senior Software Engineer",
   location: "Ho Chi Minh",
   phone: "0399223202",
   email: "travan.it.96@gmail.com",
@@ -38,7 +39,7 @@ export const profile: Profile = {
 };
 
 export const summary: string =
-  "Highly skilled Software Engineer with 7+ years of experience in building robust web applications. Proven ability to collaborate with teams, architect scalable systems, and deliver exceptional user experiences. Proficient in JavaScript, Node.js, and React.";
+  "Senior Fullstack Engineer with 7+ years of experience building scalable backend systems and modern web applications. Strong expertise in Node.js, microservices architecture, and performance optimization. Proven ability to design high-throughput APIs, lead system migrations, and deliver production-ready solutions. Backend-focused with solid frontend experience (React, Angular). Experienced in remote collaboration and AI-assisted development workflows.";
 
 export interface GithubProject {
   name: string;
@@ -63,41 +64,57 @@ export const skillGroups: SkillGroup[] = [
   {
     category: "Backend",
     items: [
-      "NodeJS",
-      "Expressjs",
-      "MEANjs",
-      "Loopback",
-      "Nestjs",
-      "Typescript",
-      "C#",
-      "ASP.NET (Webform, Winform, MVC)",
+      "Node.js (NestJS, Express, Loopback)",
+      "REST APIs, GraphQL, gRPC",
+      "Microservices Architecture, System Design",
+      "Redis (Caching), Async Processing",
     ],
+  },
+  {
+    category: "Database",
+    items: ["PostgreSQL", "MongoDB", "Firebase (Firestore)"],
   },
   {
     category: "Frontend",
     items: [
-      "Bootstrap",
+      "ReactJS",
+      "Next.js",
+      "Angular 1&8",
       "HTML",
       "CSS",
-      "jQuery",
-      "Reactjs",
-      "Angularjs",
-      "Angular 8",
-      "Nextjs",
+      "Bootstrap",
     ],
   },
   {
-    category: "Database & APIs",
-    items: ["MongoDB", "PostgreDB", "Firebase", "GraphQL", "GRPC"],
+    category: "Testing & Automation",
+    items: [
+      "Jest",
+      "Mocha",
+      "Chai",
+      "Puppeteer",
+      "Playwright",
+      "Selenium",
+    ],
   },
   {
     category: "DevOps & Tools",
-    items: ["Git", "Docker", "AWS"],
+    items: [
+      "Docker",
+      "AWS",
+      "CI/CD",
+      "Git",
+      "Claude Code",
+      "Cursor",
+      "GitHub Copilot",
+      "Unreal Engine 4.19",
+    ],
   },
-  {
-    category: "Other",
-    items: ["Unreal Engine 4.19"],
-  },
+];
+
+export const systemDesign: string[] = [
+  "Designed scalable backend systems using microservices, caching, async processing",
+  "Optimized API performance and handled high-load systems",
+  "Strong understanding of system architecture trade-offs",
 ];
 
 export const experience: ExperienceJob[] = [
@@ -106,12 +123,14 @@ export const experience: ExperienceJob[] = [
     role: "Senior Fullstack Engineer",
     period: "2025-2026",
     products: ["Glo app"],
-    techStack: ["Nestjs", "Postgre", "Redis", "GRPC", "GraphQL", "Nextjs", "Strapi", "AWS service"],
+    techStack: ["NestJS", "PostgreSQL", "Redis", "GraphQL", "gRPC", "Next.js", "Strapi", "AWS"],
     responsibilities: [
-      "Led the migration of legacy monolithic APIs to a microservices architecture, improving scalability, maintainability, and deployment flexibility.",
-      "Contributed to building and optimizing a Strapi-based CMS application to support static website generation, ensuring smooth content management and publishing workflows.",
-      "Investigated and analyzed API performance bottlenecks, identifying root causes of latency and proposing effective solutions to enhance response time and system reliability.",
-      "Authored high-level design documentation for core modules and system architecture, ensuring alignment across engineering teams and supporting long-term scalability.",
+      "Led migration from monolithic to microservices architecture, improving scalability and deployment flexibility.",
+      "Designed high-level system architecture, enabling long-term scalability and team alignment.",
+      "Identified and resolved API performance bottlenecks, improving response time and system reliability.",
+      "Built and optimized CMS system (Strapi) for static site generation and efficient content workflows.",
+      "Applied AI-assisted development (Claude, Cursor, Copilot) to accelerate development productivity and CI/CD pipelines.",
+      "Improved engineering efficiency through code review, prompt optimization, and structured workflows.",
     ],
   },
   {
@@ -119,29 +138,15 @@ export const experience: ExperienceJob[] = [
     role: "Software Engineer",
     period: "2021-2024",
     products: ["Katalon Recorder Extension", "Katalon Recorder CLI", "Cloud Studio"],
-    techStack: [
-      "ReactJs",
-      "Typescript",
-      "Nodejs",
-      "ExpressJs",
-      "Commander Js",
-      "Javascript",
-      "HTML",
-      "CSS",
-      "Jet",
-      "Puppeteer",
-      "Playwright",
-      "Selenium",
-    ],
+    techStack: ["React", "TypeScript", "Node.js", "Express", "Puppeteer", "Playwright", "Selenium"],
     responsibilities: [
-      "Firmly maintained and developed features for Katalon Recorder Extension, Recorder - Editor of Cloud Studio, Local Engine CLI (including bug fixes, performance optimization, and new functionality implementation).",
-      "Smoothly developed and launched Katalon Recorder CLI as a solo project, guaranteeing that users can run with command line fast in the most convenient way.",
-      "Governed in a leading role of the design of a scalable and secure high level solution for some features (capture new object, spy tool, ...) in Cloud Studio.",
-      "Implemented the new core keywords and functions in Local Engine CLI by Nodejs, Puppeteer, Playwright, Selenium.",
-      "Built up Regression test project for Katalon Recorder for testing without QA.",
-      "Intensively wrote unit-test to cover the test cases in Local Engine CLI, Recorder, Editor by Jest.",
-      "Collaborated with team members to ensure clear understanding of project requirements.",
-      "Partnered with the Quality Engineer to streamline testing processes and improve efficiency.",
+      "Developed and maintained core features for Katalon Recorder Extension, Cloud Studio, and CLI tools.",
+      "Designed and built Katalon Recorder CLI (solo project), enabling high-performance automation workflows.",
+      "Contributed to scalable and secure system design for advanced features (object capture, spy tool).",
+      "Implemented automation logic using Node.js + Puppeteer + Playwright + Selenium.",
+      "Built regression testing system, reducing dependency on QA and improving release stability.",
+      "Increased code quality through unit testing (Jest) and improved test coverage.",
+      "Collaborated with cross-functional teams to optimize delivery pipeline and testing processes.",
     ],
   },
   {
@@ -149,10 +154,11 @@ export const experience: ExperienceJob[] = [
     role: "Full-stack Developer",
     period: "2020-2021",
     products: ["CRM of Shopping Store"],
-    techStack: ["Nodejs", "ExpressJs", "Nest Js", "Angular 8", "Postgres DB", "Firestore"],
+    techStack: ["Node.js", "NestJS", "Angular 8", "PostgreSQL", "Firestore"],
     responsibilities: [
-      "Implement the features of UI/UX in CRM of view using Angular 8, Firestore.",
-      "Update and implement the APIs using Nodejs, Nestjs, Postgres DB",
+      "Developed CRM system features for retail platform.",
+      "Designed and implemented REST APIs using Node.js + NestJS.",
+      "Improved data handling efficiency and system performance with PostgreSQL & Firestore with Zalo APIs to support customer engagement and marketing users.",
     ],
   },
   {
@@ -160,22 +166,23 @@ export const experience: ExperienceJob[] = [
     role: "Backend Developer",
     period: "2019-2020",
     products: ["Service of Voice and SMS", "CRM of service"],
-    techStack: ["Nodejs", "Loopback 3", "MongoDB"],
+    techStack: ["Node.js", "Loopback", "MongoDB"],
     responsibilities: [
-      "Voice service, CRM: Formulated the features (connect service, send sms,...) and exported the report API.",
-      "Developed and launched SMS service as a solo project, achieving that users could send sms by API and track reports.",
-      "Integrated Payment API to CRM service.",
+      "Developed Voice & SMS services, including API integration and reporting systems.",
+      "Built SMS service (solo project) with tracking and reporting capabilities.",
+      "Integrated payment APIs into CRM system.",
     ],
   },
   {
     company: "Abby Store",
     role: "Full-stack Developer",
-    period: "2018",
+    period: "2018-2018",
     products: ["CMS of Shopping Store"],
-    techStack: ["Nodejs", "MEANjs", "Mochajs", "Chaijs"],
+    techStack: ["Node.js", "MEAN Stack", "MongoDB"],
     responsibilities: [
-      "Continuously maintained and evolved the feature sets for CMS of shopping web with tech-stack Mongodb, MEANjs, Angular.js.",
-      "Write unit test by Mochajs, Chaijs.",
+      "Maintained and enhanced e-commerce CMS system.",
+      "Improved system stability and feature scalability.",
+      "Wrote unit tests (Mocha, Chai).",
     ],
   },
   {
@@ -183,11 +190,11 @@ export const experience: ExperienceJob[] = [
     role: "Full-stack Developer",
     period: "2019-Present",
     products: ["Shopping Web", "CMS", "Flying Simulation System CMS"],
-    techStack: ["HTML", "CSS", "jQuery", "Nodejs", "Expressjs", "PostgreDB", "Knex.js", "AWS", "WinForms", "C#", "MongoDB"],
+    techStack: ["Node.js", "PostgreSQL", "AWS"],
     responsibilities: [
-      "Established and managed the entire development lifecycle for Shopping Web, including front-end design with HTML, CSS, jQuery, back-end development with Nodejs, Expressjs, and database implementation with PostgreDB. (2019)",
-      "Individually built Shopping Web and CMS from scratch, utilizing Nodejs, Knex.js, a PostgreSQL database, and AWS services to address the need for support users. (2020)",
-      "Single-handedly built a full-stack MVP for CMS of Flying Simulation System, demonstrating proficiency in both front-end and back-end development with tech-stack WinForms, C#, and MongoDB. (2020)",
+      "Built and deployed fullstack systems using Node.js, PostgreSQL, AWS.",
+      "Designed scalable backend architecture and modular frontend systems.",
+      "Delivered MVP systems independently, including CMS and simulation platforms.",
     ],
   },
 ];
@@ -195,6 +202,7 @@ export const experience: ExperienceJob[] = [
 export const education: EducationItem = {
   school: "Military Technical Academy",
   degree: "Information Technology Engineer",
+  schoolPeriod: "2014 - 2019",
   thesis:
     "Developing and Building the Simulate Apartment design in urban 3D software by Unreal Engine 4.19, Blueprint, C++.",
   thesisPeriod: "1/2019 - 5/2019",

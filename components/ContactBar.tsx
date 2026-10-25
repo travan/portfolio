@@ -1,31 +1,56 @@
-import { profile } from "@/data/cv";
+import { profile, githubProfile } from "@/data/cv";
+import Arrow from "./Arrow";
 
 export default function ContactBar() {
   return (
-    <footer className="w-full border-t border-border mt-16">
-      <div className="max-w-4xl mx-auto px-4 py-6 flex flex-wrap items-center justify-center gap-6 md:gap-8 text-sm">
-        <a
-          href={`mailto:${profile.email}`}
-          className="text-foreground hover:text-accent transition-all duration-300 hover:scale-105 inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded px-1"
-        >
-          {profile.email}
-        </a>
-        <a
-          href={`tel:${profile.phone}`}
-          className="text-foreground hover:text-accent transition-all duration-300 hover:scale-105 inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded px-1"
-        >
-          {profile.phone}
-        </a>
-        <a
-          href={profile.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-foreground hover:text-accent transition-all duration-300 hover:scale-105 inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-accent rounded px-1"
-        >
-          LinkedIn
-        </a>
-        <span className="text-muted">{profile.location}</span>
+    <section
+      className="contact-section"
+      id="contact"
+      aria-labelledby="contact-title"
+    >
+      <div className="shell contact-layout">
+        <div>
+          <p className="eyebrow section-label">04 / LET’S CONNECT</p>
+          <h2 id="contact-title">
+            Have something
+            <br />
+            in mind<span className="accent">?</span>
+          </h2>
+          <p>
+            A role, a product idea, or a technical conversation.
+            <br className="desktop-break" /> I’d be glad to hear from you.
+          </p>
+        </div>
+        <div className="contact-actions">
+          <a className="contact-email" href={`mailto:${profile.email}`}>
+            {profile.email}
+            <Arrow diagonal />
+          </a>
+          <div className="contact-socials">
+            <a
+              className="text-link"
+              href={profile.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn <Arrow diagonal />
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+            <a
+              className="text-link"
+              href={githubProfile.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub <Arrow diagonal />
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          </div>
+          {profile.location && (
+            <p className="eyebrow contact-location">{profile.location}</p>
+          )}
+        </div>
       </div>
-    </footer>
+    </section>
   );
 }

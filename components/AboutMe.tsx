@@ -1,57 +1,77 @@
-import { profile, summary } from "@/data/cv";
-import SkillsGrid from "./SkillsGrid";
-import ExperienceTimeline from "./ExperienceTimeline";
-import Education from "./Education";
+import { education } from "@/data/cv";
+
+const expertise = [
+  {
+    number: "01",
+    title: "Backend & Systems",
+    description: "The foundations that keep a product dependable as it grows.",
+    technologies: "Node.js / NestJS / PostgreSQL / Redis",
+    detail: "Microservices, API design, caching, and async processing.",
+  },
+  {
+    number: "02",
+    title: "Web Applications",
+    description: "Connecting solid engineering with the experience on screen.",
+    technologies: "React / Next.js / Angular / TypeScript",
+    detail: "Fullstack applications, CMS platforms, and frontend development.",
+  },
+  {
+    number: "03",
+    title: "Testing & Delivery",
+    description:
+      "Confidence in the code, from a local test to a production release.",
+    technologies: "Playwright / Jest / Docker / AWS",
+    detail: "Browser automation, regression testing, and CI/CD workflows.",
+  },
+];
 
 export default function AboutMe() {
   return (
-    <div className="space-y-8">
-      {/* Summary & contact */}
-      <div
-        className="rounded-lg border border-border p-4 md:p-6 text-sm md:text-base space-y-4"
-        style={{ backgroundColor: "var(--card-bg)" }}
-      >
-        <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-          <span className="font-semibold text-foreground text-lg">{profile.name}</span>
-          <span className="text-muted">|</span>
-          <span className="text-accent">{profile.title}</span>
+    <section className="section shell" id="about" aria-labelledby="about-title">
+      <div className="about-intro">
+        <div>
+          <p className="eyebrow section-label">03 / A LITTLE ABOUT ME</p>
+          <h2 id="about-title">
+            Systems thinking.
+            <br />A builder’s mindset<span className="accent">.</span>
+          </h2>
         </div>
-        <p className="text-muted">{profile.location}</p>
-        <p className="text-foreground leading-relaxed">{summary}</p>
-        <p className="text-muted text-sm pt-2">
-          Contact:{" "}
-          <a href={`mailto:${profile.email}`} className="text-accent hover:underline">
-            {profile.email}
-          </a>
-          {" · "}
-          <a
-            href={profile.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-accent hover:underline"
-          >
-            LinkedIn
-          </a>
-        </p>
+        <div className="about-copy">
+          <p>
+            I’m a Senior Fullstack Engineer with 7+ years of experience across
+            backend systems, web applications, and developer tooling.
+          </p>
+          <p>
+            My focus is backend architecture, with the frontend experience to
+            connect the whole product. I’ve worked on system migrations, API
+            performance, and browser automation, both with teams and
+            independently.
+          </p>
+          <p>
+            I’m comfortable collaborating remotely and use AI-assisted
+            development as part of my engineering workflow.
+          </p>
+        </div>
       </div>
-
-      {/* Skills */}
-      <div>
-        <h3 className="text-accent text-sm font-mono mb-3">&gt; Skills</h3>
-        <SkillsGrid />
+      <div className="expertise-grid">
+        {expertise.map((item) => (
+          <article className="expertise-item" key={item.title}>
+            <span className="eyebrow expertise-number">/ {item.number}</span>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+            <p className="expertise-detail">{item.detail}</p>
+            <p className="expertise-tech">{item.technologies}</p>
+          </article>
+        ))}
       </div>
-
-      {/* Experience */}
-      <div>
-        <h3 className="text-accent text-sm font-mono mb-3">&gt; Experience</h3>
-        <ExperienceTimeline />
+      <div className="education-row">
+        <p className="eyebrow">FOUNDATIONS</p>
+        <div>
+          <h3>{education.school}</h3>
+          <p>{education.degree}</p>
+        </div>
+        <span className="career-date">{education.schoolPeriod}</span>
       </div>
-
-      {/* Education */}
-      <div>
-        <h3 className="text-accent text-sm font-mono mb-3">&gt; Education</h3>
-        <Education />
-      </div>
-    </div>
+    </section>
   );
 }

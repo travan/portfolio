@@ -1,98 +1,37 @@
-# Portfolio — Tra Nguyen
+# Tra Nguyen — Portfolio
 
-Personal developer portfolio built with **Next.js**. Terminal-style hero, intro tabs (Hello / About / GitHub), and CV content in the About tab.
+An English-language portfolio for a backend-focused Senior Software Engineer. Built with Next.js 14 App Router, TypeScript, and Tailwind CSS.
 
-**Live:** Deploy on [Vercel](https://vercel.com) or any Node host after `npm run build`.
+## Development
 
----
-
-## Features
-
-- **Terminal hero** — Typewriter-style contact output
-- **Intro tabs** — Hello (CSS robot), About (summary, skills, experience, education), GitHub projects
-- **Dark dev/terminal theme** — Monospace typography, accent greens
-- **Effects** — Scroll progress, back-to-top, hover states, tech footprint on experience cards
-
----
-
-## Tech stack
-
-| Layer     | Technology        |
-| --------- | ----------------- |
-| Framework | Next.js 14 (App Router) |
-| Language  | TypeScript        |
-| Styling   | Tailwind CSS      |
-| Content   | Structured in `data/cv.ts` |
-
----
-
-## Getting started
-
-### Prerequisites
-
-- **Node.js** 18+ (recommended: LTS)
-- **npm** (or pnpm / yarn)
-
-### Install & run locally
-
-```bash
-git clone https://github.com/<your-username>/<repo-name>.git
-cd <repo-name>
-npm install
+```sh
+npm ci
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Visit http://localhost:3000. To use another port: `npm run dev -- --port 3001`.
 
-### Production build
+## Validation
 
-```bash
+```sh
+npm run lint
 npm run build
 npm start
 ```
 
-### Lint
+The page is statically rendered with server components. Its content and native anchor links work without JavaScript. Motion is decorative and respects `prefers-reduced-motion`.
 
-```bash
-npm run lint
-```
+## Content and design
 
----
+- `data/cv.ts`: profile, work experience, education, and repositories. Location is optional and currently omitted at the owner’s request. A project's optional `featured` field includes its artwork variant, category, problem, and approach. Only featured projects appear on the homepage. The optional `packages` field adds npm links. A `private` repository visibility is shown as a label, and `demoUnavailable` suppresses an unavailable demo link while preserving its URL in the data.
+- `components/`: hero, selected work, career timeline, expertise/about, and contact sections. Glo and Katalon receive detailed treatment; other roles are compact, and freelance work is shown separately.
+- `app/globals.css`: ivory/sage palette, responsive layout, typography, focus styles, and reduced-motion support.
+- `app/layout.tsx`, `app/opengraph-image.tsx`, `app/icon.svg`, `app/favicon.ico`: local Geist fonts, metadata, generated social sharing image, and original monogram icons.
 
-## Project structure
+The project illustrations are original SVG/CSS artwork, not screenshots or measured performance data. The VeriCause diagram describes its conceptual claim/evidence verification workflow. VeriCause content comes from the published npm READMEs for `ai-reliability-runtime` and `ai-reliability-layer`; Travel Planner and extension-text2speech content comes from their repository READMEs. No project outcomes or business metrics have been fabricated.
 
-```
-portfolio/
-├── app/                 # App Router: layout, page, globals.css
-├── components/          # UI (Terminal, IntroTabs, Experience, etc.)
-├── data/cv.ts           # Profile, skills, experience, GitHub projects
-├── hooks/               # e.g. useInView
-└── public/              # Static assets
-```
+## Deployment configuration
 
-Update your CV and links in **`data/cv.ts`**.
+Set `NEXT_PUBLIC_SITE_URL` to the final public origin (for example, `https://your-domain.com`) before a production build so sharing images resolve to the correct domain. It defaults to `http://localhost:3000` for local development. Use the public origin of the server when previewing on a different local port.
 
----
-
-## Deploy to GitHub + Vercel (example)
-
-1. Push this repo to GitHub.
-2. Import the repo in [Vercel](https://vercel.com/new).
-3. Framework preset: **Next.js** — deploy with defaults.
-
-Environment variables are not required for the static CV flow.
-
----
-
-## Author
-
-**Tra Nguyen** — Software Engineer  
-
-- GitHub: [@travan](https://github.com/travan)
-- LinkedIn: [profile](https://www.linkedin.com/in/tra-n-516b361b1/)
-
----
-
-## License
-
-This project is open for personal portfolio use. You may fork and adapt for your own site; attribution is appreciated.
+Deploying is a separate step. No publishing or external services are needed for local use.

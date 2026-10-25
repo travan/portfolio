@@ -1,53 +1,85 @@
 import { experience } from "@/data/cv";
-import TechStackDiagram from "./TechStackDiagram";
 
 export default function ExperienceTimeline() {
+  const jobs = experience.filter((job) => job.company !== "Freelancer");
+  const freelance = experience.find((job) => job.company === "Freelancer")!;
   return (
-    <div className="relative">
-      <div className="absolute left-3 top-0 bottom-0 w-px bg-border md:left-4" />
-      <ul className="space-y-8">
-        {experience.map((job) => (
-          <li key={`${job.company}-${job.period}`} className="relative pl-10 md:pl-12">
-            <span
-              className="absolute left-0 w-3 h-3 rounded-full border-2 border-accent bg-background top-1.5 md:left-0.5"
-              aria-hidden
-            />
-            <div
-              className="card-hover rounded-lg border border-border p-4 md:p-5 hover:border-accent/50"
-              style={{ backgroundColor: "var(--card-bg)" }}
-            >
-              <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-                <span className="font-semibold text-foreground">{job.company}</span>
-                <span className="text-muted">|</span>
-                <span className="text-accent">{job.role}</span>
-                <span className="text-muted text-sm">{job.period}</span>
-              </div>
-              <div className="mt-2 text-sm text-muted">
-                <span className="text-foreground/90">Product: </span>
-                {job.products.join(", ")}
-              </div>
-              <div className="mt-2 flex flex-wrap gap-1.5">
-                {job.techStack.map((tech) => (
-                  <span
-                    key={tech}
-                    className="inline-block px-2 py-0.5 text-xs rounded border border-border bg-background/80 text-muted"
-                  >
-                    {tech}
+    <section
+      className="section experience-section"
+      id="experience"
+      aria-labelledby="experience-title"
+    >
+      <div className="shell experience-layout">
+        <div className="experience-intro">
+          <p className="eyebrow section-label">02 / EXPERIENCE</p>
+          <h2 id="experience-title">
+            Built over time<span className="accent">.</span>
+          </h2>
+          <p>
+            From backend services to developer tools. A career grounded in
+            building, improving, and taking ownership.
+          </p>
+          <div className="experience-note">
+            <span aria-hidden="true">↳</span> Architecture. Automation.
+            <br /> End-to-end delivery.
+          </div>
+        </div>
+        <div className="experience-content">
+          <ol className="career-list">
+            {jobs.map((job, index) => (
+              <li
+                key={job.company}
+                className={`career-item ${index < 2 ? "career-featured" : ""}`}
+              >
+                <div className="career-top">
+                  <h3>{job.company}</h3>
+                  <span className="career-date">
+                    {job.period === "2018-2018"
+                      ? "2018"
+                      : job.period.replace("-", " — ")}
                   </span>
-                ))}
-              </div>
-              <TechStackDiagram techStack={job.techStack} />
-              <ul className="mt-3 space-y-1.5 text-sm text-foreground list-disc list-inside">
-                {job.responsibilities.map((r) => (
-                  <li key={`${job.company}-${r.slice(0, 50)}`} className="leading-relaxed">
-                    {r}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
+                </div>
+                <p className="career-role">{job.role}</p>
+                {index < 2 ? (
+                  <>
+                    <p className="career-products">
+                      {job.products.join(" · ")}
+                    </p>
+                    <ul className="career-highlights">
+                      {job.responsibilities
+                        .slice(0, index === 0 ? 3 : 5)
+                        .filter((_, i) => index === 0 || i !== 2)
+                        .map((text) => (
+                          <li key={text}>{text}</li>
+                        ))}
+                    </ul>
+                    <ul
+                      className="tags"
+                      aria-label={`${job.company} technologies`}
+                    >
+                      {job.techStack.slice(0, 5).map((tech) => (
+                        <li key={tech}>{tech}</li>
+                      ))}
+                    </ul>
+                  </>
+                ) : (
+                  <p className="career-summary">{job.responsibilities[0]}</p>
+                )}
+              </li>
+            ))}
+          </ol>
+          <aside className="freelance-note" aria-labelledby="freelance-title">
+            <p className="eyebrow">
+              IN PARALLEL / {freelance.period.replace("-", " — ")}
+            </p>
+            <h3 id="freelance-title">Independent development</h3>
+            <p>
+              Building and deploying fullstack systems with Node.js, PostgreSQL,
+              and AWS, including CMS and simulation platforms.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
   );
 }

@@ -126,6 +126,7 @@ export const githubProfile: { url: string; projects: GithubProject[] } = {
       ],
       href: "https://github.com/travan/AI-Powered-_Travel_Planner",
       repositoryVisibility: "private",
+      demo: "https://ai-powered-travel-planner-api.vercel.app/",
       featured: {
         artwork: "travel",
         category: "AI applications · Web & mobile",
